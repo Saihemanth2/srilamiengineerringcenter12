@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sri Laxmi Engineering Center | Medak</title>
+
+  <meta
+    name="description"
+    content="Sri Laxmi Engineering Center, serving since 1988. Visit us on MG Road, near Shivaji Statue, Medak – 502110. Open Monday to Saturday, 10 AM to 10 PM."
+  >
+
+  <style>
+    :root {
+      --navy: #10253e;
+      --navy-light: #1c3c5c;
+      --orange: #ffb444;
+      --background: #f5f7fa;
+      --white: #ffffff;
+      --text: #172b41;
+      --muted: #5a6b7e;
+      --border: #dfe6ee;
+      --radius: 18px;
+      --shadow: 0 16px 45px rgba(16, 37, 62, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #087bc1;
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #e0e9f3;
+      padding: 9px 0;
+      font-size: 0.85rem;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: var(--orange);
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 3px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #a65f00;
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 11px 23px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--orange);
+      color: var(--navy);
+    }
+
+    .button-primary:hover {
+      background: #ffc46c;
+    }
+
+    .button-outline {
+      border: 1px solid #7890a8;
+      color: var(--white);
+    }
+
+    .button-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 95px 0;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(255, 180, 68, 0.12),
+          transparent 34%
+        ),
+        linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--white);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 6px 13px;
+      border: 1px solid rgba(255, 180, 68, 0.4);
+      border-radius: 30px;
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      line-height: 1.12;
+      letter-spacing: -1.8px;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      margin-top: 24px;
+      color: #d2deeb;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .visit-card {
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+    }
+
+    .visit-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+    }
+
+    .visit-item + .visit-item {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .visit-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .visit-card p {
+      color: #e0e9f3;
+    }
+
+    section.content-section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 10px;
+      color: #996000;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.7px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .highlight {
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .highlight strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.6rem;
+    }
+
+    .highlight span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    #contact {
+      background: #eaf0f6;
+    }
+
+    .section-intro {
+      max-width: 620px;
+      margin-bottom: 32px;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-card {
+      height: 100%;
+      min-width: 0;
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      margin-bottom: 22px;
+      color: #65758a;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.22rem;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    address {
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    .contact-link {
+      display: block;
+      width: fit-content;
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover,
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    .email-label {
+      margin-top: 22px;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+    }
+
+    .email-link {
+      color: var(--navy);
+      overflow-wrap: anywhere;
+      font-size: 0.92rem;
+    }
+
+    .contact-card .button {
+      margin-top: 24px;
+    }
+
+    .hours {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+
+    .hours th,
+    .hours td {
+      padding: 13px 0;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours th {
+      font-weight: 400;
+      color: var(--muted);
+      padding-right: 12px;
+    }
+
+    .hours td {
+      font-weight: 700;
+    }
+
+    .closed {
+      color: #a52a2a;
+    }
+
+    .location-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .location-banner h3 {
+      margin-bottom: 5px;
+    }
+
+    .location-banner p {
+      color: #d2deeb;
+    }
+
+    .location-banner .button {
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: #0b1b2e;
+      color: #bdcbd9;
+      padding: 28px 0;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        font-size: 0.75rem;
+      }
+
+      .navbar {
+        min-height: 78px;
+      }
+
+      .brand-name {
+        max-width: 190px;
+        font-size: 0.88rem;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .js-enabled .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .js-enabled nav {
+        display: none;
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .js-enabled nav.is-open {
+        display: flex;
+      }
+
+      .js-enabled nav a {
+        padding: 12px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .visit-card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      section.content-section {
+        padding: 55px 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card:last-child {
+        grid-column: auto;
+      }
+
+      .highlights {
+        gap: 12px;
+      }
+
+      .highlight {
+        padding: 20px;
+      }
+
+      .location-banner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>MG Road, near Shivaji Statue, Medak – 502110</span>
+      <a href="tel:+919392079056">Call: 93920 79056</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Sri Laxmi Engineering Center home">
+        <span class="brand-mark" aria-hidden="true">SL</span>
+        <span>
+          <span class="brand-name">Sri Laxmi Engineering Center</span>
+          <span class="brand-subtitle">Medak · Since 1988</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-controls="mainNav"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Established in 1988</span>
+          <h1 id="heroTitle">Sri Laxmi<br>Engineering Center</h1>
+
+          <p class="hero-description">
+            Welcome to Sri Laxmi Engineering Center, Medak.
+            Visit us on MG Road, near Shivaji Statue, or call us
+            to discuss your engineering requirements.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+919392079056">
+              Call Us Now
+            </a>
+
+            <a
+              class="button button-outline"
+              href="https://share.google/rio7BWt4aAFJvgdte"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+
+        <aside class="visit-card" aria-label="Visit information">
+          <h2>Plan your visit</h2>
+
+          <div class="visit-item">
+            <span class="visit-label">Find us</span>
+            <p>MG Road, near Shivaji Statue<br>Medak – 502110</p>
+          </div>
+
+          <div class="visit-item">
+            <span class="visit-label">Opening hours</span>
+            <p>Monday to Saturday<br>10:00 AM – 10:00 PM</p>
+          </div>
+
+          <div class="visit-item">
+            <span class="visit-label">Weekly holiday</span>
+            <p>Sunday — Closed</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-section" id="about" aria-labelledby="aboutTitle">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title" id="aboutTitle">
+            Serving Medak since 1988.
+          </h2>
+
+          <p>
+            Sri Laxmi Engineering Center has been serving Medak since
+            1988. You can find us on MG Road, near Shivaji Statue.
+          </p>
+
+          <p>
+            For enquiries, please contact us by phone or email.
+            Our working hours are Monday to Saturday, from
+            10:00 AM to 10:00 PM. We remain closed on Sundays.
+          </p>
+        </div>
+
+        <div class="highlights" aria-label="Business information">
+          <div class="highlight">
+            <strong>1988</strong>
+            <span>Year established</span>
+          </div>
+
+          <div class="highlight">
+            <strong>Medak</strong>
+            <span>Our location</span>
+          </div>
+
+          <div class="highlight">
+            <strong>10 AM</strong>
+            <span>Opening time</span>
+          </div>
+
+          <div class="highlight">
+            <strong>10 PM</strong>
+            <span>Closing time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <span class="section-label">Contact Us</span>
+        <h2 class="section-title" id="contactTitle">Let’s get in touch.</h2>
+
+        <p class="section-intro">
+          Call us for enquiries or visit our center during working hours.
+        </p>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="card-number" aria-hidden="true">01 / CONTACT</div>
+            <h3>Phone &amp; Email</h3>
+
+            <a class="contact-link" href="tel:+919392079056">
+              93920 79056
+            </a>
+
+            <a class="contact-link" href="tel:+918919200344">
+              89192 00344
+            </a>
+
+            <a class="contact-link" href="tel:+919063290510">
+              90632 90510
+            </a>
+
+            <p class="email-label">Email us</p>
+            <a class="email-link" href="mailto:prasadkamini5@gmail.com">
+              prasadkamini5@gmail.com
+            </a>
+          </article>
+
+          <article class="contact-card">
+            <div class="card-number" aria-hidden="true">02 / VISIT</div>
+            <h3>Our Address</h3>
+
+            <address>
+              Sri Laxmi Engineering Center<br>
+              MG Road, near Shivaji Statue<br>
+              Medak – 502110
+            </address>
+
+            <a
+              class="button button-dark"
+              href="https://share.google/rio7BWt4aAFJvgdte"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Google Maps
+            </a>
+          </article>
+
+          <article class="contact-card">
+            <div class="card-number" aria-hidden="true">03 / HOURS</div>
+            <h3>Working Hours</h3>
+
+            <table class="hours" aria-label="Business opening hours">
+              <tbody>
+                <tr>
+                  <th scope="row">Monday – Saturday</th>
+                  <td>
+                    <time datetime="10:00">10:00 AM</time>
+                    –
+                    <time datetime="22:00">10:00 PM</time>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Sunday</th>
+                  <td class="closed">Closed</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="location-banner">
+          <div>
+            <h3>Visit Sri Laxmi Engineering Center</h3>
+            <p>MG Road, near Shivaji Statue, Medak – 502110.</p>
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://share.google/rio7BWt4aAFJvgdte"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Map
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>
+        &copy; <span id="year"></span> Sri Laxmi Engineering Center.
+        All rights reserved.
+      </p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.body.classList.add("js-enabled");
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    function closeMenu() {
+      mainNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "Menu";
+    }
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("is-open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "Close" : "Menu";
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (
+        event.key === "Escape" &&
+        mainNav.classList.contains("is-open")
+      ) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".navbar")) {
+        closeMenu();
+      }
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
